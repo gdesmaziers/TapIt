@@ -25,8 +25,12 @@
 @property(nonatomic, assign) int score;
 @property(nonatomic, assign) float itemsMoveInterval;
 @property(nonatomic, assign) float newItemsInterval;
+@property(nonatomic, assign) BOOL isInChainMode;
 @property(nonatomic, weak) id<GameDelegate>delegate;
 
 - (void)start;
+- (void)scorePlayer;
+- (void)enableChainMode;
+- (void)disableChainMode;
 
 @end

@@ -19,6 +19,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.game start];
+    [self updateScoreLabel];
+}
+
+- (void)updateScoreLabel {
+    [(GameView *)self.view updateScoreLabel:self.game.score];
 }
 
 #pragma GameDelegate
@@ -33,7 +38,14 @@
 }
 
 #pragma GameItemViewDelegate
--(void)gameItemViewWasTapped:(GameItemView *)GameItemView {
+-(void)gameItemViewWasTapped:(GameItemView *)gameItemView {
+    if(gameItemView.item.itemType==GameItemTypeCircle) {
+        [self.game scorePlayer];
+    }
+    else {
+        [self.game enableChainMode];
+    }
+    [self updateScoreLabel];
 }
 
 @end
