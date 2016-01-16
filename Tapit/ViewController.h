@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property(nonatomic, strong) IBOutlet UIButton *test;
 
 @end
 
