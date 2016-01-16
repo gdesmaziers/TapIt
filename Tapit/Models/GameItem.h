@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    GameItemTypeCircle,
+    GameItemTypeHexagone
+} GameItemType;
+
 @interface GameItem : NSObject
 
+@property(nonatomic, assign) GameItemType itemType;
 @property(nonatomic, assign) float position;
 
+- (instancetype)initWithGameItemType:(GameItemType)itemType;
 - (void)move;
 
 @end

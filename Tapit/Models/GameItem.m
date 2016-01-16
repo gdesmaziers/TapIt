@@ -11,9 +11,10 @@
 
 @implementation GameItem
 
-- (instancetype)init {
+- (instancetype)initWithGameItemType:(GameItemType)itemType {
     self = [super init];
     if (self) {
+        self.itemType = itemType;
         self.position = -GAME_ITEM_SIZE;
     }
     return self;

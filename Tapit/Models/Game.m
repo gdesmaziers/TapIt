@@ -7,7 +7,6 @@
 //
 
 #import "Game.h"
-#import "GameItem.h"
 #import "Constants.h"
 
 @interface Game()
@@ -31,6 +30,7 @@
 }
 
 - (void)start {
+    [self displayNextItems];
     [self moveItems];
 }
 
@@ -39,10 +39,16 @@
         [item move];
     }
     [self.delegate gameDidMoveItems:self];
+    //Ici vérif état du jeu
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,  self.itemsMoveInterval* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self moveItems];
+    });
 }
 
 - (void)displayNextItems {
-    
+    GameItem *newItem = [[GameItem alloc] initWithGameItemType:GameItemTypeHexagone];
+    self.items = [self.items arrayByAddingObject:newItem];
+    [self.delegate game:self didAddItem:newItem inColum:1];
 }
 
 @end

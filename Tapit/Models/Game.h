@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameItem.h"
 
 @class Game;
 
 @protocol GameDelegate
 
+-(void)game:(Game *)game didAddItem:(GameItem *)item inColum:(int)column;
 -(void)gameDidMoveItems:(Game *)game;
 
 @end
