@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameItemView.h
 //  Tapit
 //
 //  Created by Grégory DESMAZIERS on 16/01/2016.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property(nonatomic, strong) IBOutlet UIButton *test;
+@interface GameItemView : UIView
 
 @end
-
