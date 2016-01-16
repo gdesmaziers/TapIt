@@ -10,6 +10,12 @@
 #import "GameViewSeparator.h"
 #import "Constants.h"
 
+@interface GameView()
+
+- (GameItemView *)itemViewForItem:(GameItem *)item;
+
+@end
+
 @implementation GameView
 
 - (void)awakeFromNib {
@@ -38,6 +44,21 @@
 - (void)removeItemView:(GameItemView *)itemView {
     [self.itemViews removeObject:itemView];
     [itemView removeFromSuperview];
+}
+
+- (GameItemView *)itemViewForItem:(GameItem *)item {
+    for(GameItemView *itemView in self.itemViews) {
+        if(itemView.item == item) {
+            return itemView;
+        }
+    }
+    return nil;
+}
+
+- (void)removeItemViewForItem:(GameItem *)item {
+    GameItemView *itemView = [self itemViewForItem:item];
+    [itemView removeFromSuperview];
+    [self.itemViews removeObject:itemView];
 }
 
 @end

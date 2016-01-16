@@ -28,6 +28,10 @@
 }
 
 #pragma GameDelegate
+- (float)gameMaxItemPosition:(Game *)game {
+    return self.view.frame.size.height;
+}
+
 -(void)game:(Game *)game didAddItem:(GameItem *)item inColum:(int)column {
     [(GameView *)self.view addNewItemViewInColum:column withGameItem:item delegate:self];
 }
@@ -36,6 +40,10 @@
     for(GameItemView *itemView in ((GameView *)self.view).itemViews) {
         [itemView updatePosition];
     }
+}
+
+-(void)game:(Game *)game itemDisappeared:(GameItem *)gameItem {
+    [(GameView *)self.view removeItemViewForItem:gameItem];
 }
 
 #pragma GameItemViewDelegate

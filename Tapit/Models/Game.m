@@ -15,6 +15,8 @@
 - (void)displayNextItems;
 - (void)scorePlayer;
 - (void)increaseChainMode;
+- (void)disableChainMode;
+- (void)decreaseLife;
 
 @end
 
@@ -65,11 +67,27 @@
     self.chainMultiplier = 1;
 }
 
+- (void)decreaseLife {
+    self.lifes--;
+}
+
 - (void)moveItems {
     for(GameItem *item in self.items) {
         [item move];
     }
     [self.delegate gameDidMoveItems:self];
+    NSMutableArray *disapearedItems = [NSMutableArray array];
+    for(GameItem *item in self.items) {
+        if(item.position>[self.delegate gameMaxItemPosition:self]) {
+            [self disableChainMode];
+            if(item.itemType==GameItemTypeCircle) {
+                [self decreaseLife];
+            }
+            [self.delegate game:self itemDisappeared:item];
+            [disapearedItems addObject:item];
+        }
+    }
+    [self.items removeObjectsInArray:disapearedItems];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,  self.itemsMoveInterval* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self moveItems];
     });

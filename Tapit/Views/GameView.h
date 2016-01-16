@@ -16,6 +16,7 @@
 @property(nonatomic, strong) NSMutableArray *itemViews;
 
 - (void)removeItemView:(GameItemView *)itemView;
+- (void)removeItemViewForItem:(GameItem *)item;
 - (void)addNewItemViewInColum:(int)column withGameItem:(GameItem *)item delegate:(id<GameItemViewDelegate>)delegate;
 - (void)updateScoreLabel:(int)score;
 

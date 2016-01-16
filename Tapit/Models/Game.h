@@ -13,8 +13,10 @@
 
 @protocol GameDelegate
 
+-(float)gameMaxItemPosition:(Game *)game;
 -(void)game:(Game *)game didAddItem:(GameItem *)item inColum:(int)column;
 -(void)gameDidMoveItems:(Game *)game;
+-(void)game:(Game *)game itemDisappeared:(GameItem *)gameItem;
 
 @end
 
@@ -30,7 +32,5 @@
 
 - (void)start;
 - (void)playItem:(GameItem *)item;
-- (void)increaseChainMode;
-- (void)disableChainMode;
 
 @end
