@@ -13,7 +13,7 @@
 
 @protocol GameItemViewDelegate
 
--(void)gameItemViewWasTapped:(GameItemView *)GameItemView;
+-(void)gameItemViewWasTapped:(GameItemView *)gameItemView;
 
 @end
 
