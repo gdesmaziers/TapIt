@@ -29,6 +29,8 @@
 		3717BE831C4AD256002B3D9D /* IconLife-s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3717BE7F1C4AD256002B3D9D /* IconLife-s@2x.png */; };
 		3717BE841C4AD256002B3D9D /* IconLife@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3717BE801C4AD256002B3D9D /* IconLife@2x.png */; };
 		3717BE871C4AD553002B3D9D /* LifesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE861C4AD553002B3D9D /* LifesView.m */; };
+		3717BE8A1C4AE2F0002B3D9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE891C4AE2F0002B3D9D /* HomeViewController.m */; };
+		3717BE8D1C4AEB49002B3D9D /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE8C1C4AEB49002B3D9D /* Player.m */; };
 		B6E121308B513DA2025ACD55 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43FB41BC061F13843BD3A39 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,10 @@
 		3717BE801C4AD256002B3D9D /* IconLife@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconLife@2x.png"; sourceTree = "<group>"; };
 		3717BE851C4AD553002B3D9D /* LifesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifesView.h; sourceTree = "<group>"; };
 		3717BE861C4AD553002B3D9D /* LifesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifesView.m; sourceTree = "<group>"; };
+		3717BE881C4AE2F0002B3D9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		3717BE891C4AE2F0002B3D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		3717BE8B1C4AEB49002B3D9D /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		3717BE8C1C4AEB49002B3D9D /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		A94CC9367823965DF524FF6E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D43FB41BC061F13843BD3A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +170,8 @@
 				3717BE5A1C4A928B002B3D9D /* Game.m */,
 				3717BE5D1C4A93EA002B3D9D /* GameItem.h */,
 				3717BE5E1C4A93EA002B3D9D /* GameItem.m */,
+				3717BE8B1C4AEB49002B3D9D /* Player.h */,
+				3717BE8C1C4AEB49002B3D9D /* Player.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +181,8 @@
 			children = (
 				3717BE631C4A9B32002B3D9D /* GameViewController.h */,
 				3717BE641C4A9B32002B3D9D /* GameViewController.m */,
+				3717BE881C4AE2F0002B3D9D /* HomeViewController.h */,
+				3717BE891C4AE2F0002B3D9D /* HomeViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -382,6 +392,7 @@
 				3717BE871C4AD553002B3D9D /* LifesView.m in Sources */,
 				3717BE5B1C4A928B002B3D9D /* Game.m in Sources */,
 				3717BE6F1C4A9D56002B3D9D /* GameView.m in Sources */,
+				3717BE8D1C4AEB49002B3D9D /* Player.m in Sources */,
 				3717BE651C4A9B32002B3D9D /* GameViewController.m in Sources */,
 				3717BE721C4A9F82002B3D9D /* GameViewSeparator.m in Sources */,
 				3717BE351C4A86C6002B3D9D /* AppDelegate.m in Sources */,
@@ -390,6 +401,7 @@
 				3717BE7B1C4AA9FE002B3D9D /* HaxagoneGameItemView.m in Sources */,
 				3717BE751C4AA141002B3D9D /* GameItemView.m in Sources */,
 				3717BE5F1C4A93EA002B3D9D /* GameItem.m in Sources */,
+				3717BE8A1C4AE2F0002B3D9D /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

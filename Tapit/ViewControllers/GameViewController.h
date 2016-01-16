@@ -13,5 +13,6 @@
 @interface GameViewController : UIViewController<GameDelegate, GameItemViewDelegate>
 
 @property(nonatomic, strong) Game *game;
+@property(nonatomic, strong) UITextField *playerNameTextField;
 
 @end

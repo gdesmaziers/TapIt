@@ -17,4 +17,7 @@
 #define GAME_NUMBER_OF_COLUM 4
 #define GAME_SEPARATOR_SIZE 2.0f
 
+#define PARSE_APPLICATION_ID @"ikR4MZm4sXnI6DJ07vGZgiidXXOlS3rIa3hgC51c"
+#define PARSE_CLIENT_KEY @"aYUjYBSjYJrscstlwtH4jdfhzibApLiA7j25Bwqv"
+
 #endif /* Constants_h */

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Parse setApplicationId:PARSE_APPLICATION_ID clientKey:PARSE_CLIENT_KEY];
     return YES;
 }
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GameItem.h"
+#import "Player.h"
 
 @class Game;
 
@@ -25,7 +26,7 @@
 
 @property(nonatomic, strong) NSMutableArray *items;
 @property(nonatomic, assign) int lifes;
-@property(nonatomic, assign) int score;
+@property(nonatomic, strong) Player *player;
 @property(nonatomic, assign) float itemsMoveInterval;
 @property(nonatomic, assign) float newItemsInterval;
 @property(nonatomic, assign) int chainMultiplier;
@@ -33,5 +34,6 @@
 
 - (void)start;
 - (void)playItem:(GameItem *)item;
+- (void)saveScoreForCurrentPlayer;
 
 @end

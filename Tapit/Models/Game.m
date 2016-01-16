@@ -25,7 +25,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.score = 0;
+        self.player = [[Player alloc] init];
         self.lifes = GAME_NUMBER_OF_INITIAL_LIFES;
         self.itemsMoveInterval = GAME_INITIAL_ITEMS_MOVE_INTERVAL;
         self.newItemsInterval = GAME_INITIAL_NEW_ITEMS_INTERVAL;
@@ -51,8 +51,8 @@
 }
 
 - (void)scorePlayer {
-    self.score = self.score + self.chainMultiplier;
-    if(self.score%10==0) {
+    self.player.score = self.player.score + self.chainMultiplier;
+    if(self.player.score%10==0) {
         self.itemsMoveInterval = self.itemsMoveInterval*0.9;
         self.newItemsInterval = self.newItemsInterval*0.9;
     }
@@ -103,7 +103,7 @@
         //Si le score du joueur est entre 0 et 50, on ajoute 1 ou 2 items
         //Si le score du joueur est entre 50 et 100, on ajoute 1, 2 ou 3 items
         //Si le score du joueur est supérieur ou égal à 100, on ajoute 1, 2, 3 ou 4 items
-        int numberOfItemsToDispay = 1 + arc4random_uniform(MIN((int)(self.score/50)+2,4));
+        int numberOfItemsToDispay = 1 + arc4random_uniform(MIN((int)(self.player.score/50)+2,4));
         NSMutableArray *availbaleColumns = [NSMutableArray arrayWithCapacity:GAME_NUMBER_OF_COLUM];
         for(int i=0;i<GAME_NUMBER_OF_COLUM;i++) {
             [availbaleColumns addObject:[NSNumber numberWithInt:i]];
@@ -114,13 +114,13 @@
             //Si le score du joueur est entre 50 et 75, il y a une chance sur 4 d'avoir un hexagone
             //Si le score du joueur est supérieur ou égal à 75, il y a une chance sur 3 d'avoir un hexagone
             BOOL isHexagone = NO;
-            if(self.score<25) {
+            if(self.player.score<25) {
                 isHexagone = (0 + arc4random_uniform(5))==0;
             }
-            else if(self.score>=25 && self.score<50) {
+            else if(self.player.score>=25 && self.player.score<50) {
                 isHexagone = (0 + arc4random_uniform(4))==0;
             }
-            else if(self.score>=50 && self.score<75) {
+            else if(self.player.score>=50 && self.player.score<75) {
                 isHexagone = (0 + arc4random_uniform(3))==0;
             }
             else {
@@ -136,6 +136,10 @@
             [self displayNextItems];
         });
     }
+}
+
+- (void)saveScoreForCurrentPlayer {
+    [self.player saveScore];
 }
 
 @end

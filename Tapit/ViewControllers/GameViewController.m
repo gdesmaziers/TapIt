@@ -24,17 +24,30 @@
 }
 
 - (void)updateScoreLabel {
-    [(GameView *)self.view updateScoreLabel:self.game.score];
+    [(GameView *)self.view updateScoreLabel:self.game.player.score];
 }
 
 - (void)displayScoreAlert {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Score : %d", self.game.score] message:@"Entrez votre nom" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addTextFieldWithConfigurationHandler:nil];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Score : %d", self.game.player.score] message:@"Entrez votre nom" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.playerNameTextField = textField;
+        textField.text = self.game.player.name;
+    }];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        if(self.playerNameTextField.text.length>0) {
+            self.game.player.name = self.playerNameTextField.text;
+            [self.game saveScoreForCurrentPlayer];
+        }
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
     }]];
     [alert.view setNeedsLayout];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 #pragma mark GameDelegate
