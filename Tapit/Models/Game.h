@@ -16,7 +16,8 @@
 -(float)gameMaxItemPosition:(Game *)game;
 -(void)game:(Game *)game didAddItem:(GameItem *)item inColum:(int)column;
 -(void)gameDidMoveItems:(Game *)game;
--(void)game:(Game *)game itemDisappeared:(GameItem *)gameItem;
+-(void)game:(Game *)game itemDidDisappeared:(GameItem *)gameItem;
+-(void)gameDidFinished:(Game *)game;
 
 @end
 

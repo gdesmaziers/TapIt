@@ -27,7 +27,17 @@
     [(GameView *)self.view updateScoreLabel:self.game.score];
 }
 
-#pragma GameDelegate
+- (void)displayScoreAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Score : %d", self.game.score] message:@"Entrez votre nom" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:nil];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert.view setNeedsLayout];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark GameDelegate
 - (float)gameMaxItemPosition:(Game *)game {
     return self.view.frame.size.height;
 }
@@ -42,12 +52,16 @@
     }
 }
 
--(void)game:(Game *)game itemDisappeared:(GameItem *)gameItem {
+-(void)game:(Game *)game itemDidDisappeared:(GameItem *)gameItem {
     [(GameView *)self.view removeItemViewForItem:gameItem];
     [(GameView *)self.view updateLifesDisplay:self.game.lifes];
 }
 
-#pragma GameItemViewDelegate
+-(void)gameDidFinished:(Game *)game {
+    [self displayScoreAlert];
+}
+
+#pragma mark GameItemViewDelegate
 -(void)gameItemViewWasTapped:(GameItemView *)gameItemView {
     [self.game playItem:gameItemView.item];
     [self updateScoreLabel];
