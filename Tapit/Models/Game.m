@@ -99,7 +99,7 @@
 }
 
 - (void)displayNextItems {
-    if(self.lifes>0) {
+    if(self.lifes>=0) {
         //Si le score du joueur est entre 0 et 50, on ajoute 1 ou 2 items
         //Si le score du joueur est entre 50 et 100, on ajoute 1, 2 ou 3 items
         //Si le score du joueur est supérieur ou égal à 100, on ajoute 1, 2, 3 ou 4 items

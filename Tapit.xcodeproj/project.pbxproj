@@ -31,6 +31,9 @@
 		3717BE871C4AD553002B3D9D /* LifesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE861C4AD553002B3D9D /* LifesView.m */; };
 		3717BE8A1C4AE2F0002B3D9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE891C4AE2F0002B3D9D /* HomeViewController.m */; };
 		3717BE8D1C4AEB49002B3D9D /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE8C1C4AEB49002B3D9D /* Player.m */; };
+		3717BE941C4B073B002B3D9D /* UIView+Nib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE931C4B073B002B3D9D /* UIView+Nib.m */; };
+		3717BE981C4B0779002B3D9D /* BestPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3717BE961C4B0779002B3D9D /* BestPlayerTableViewCell.m */; };
+		3717BE991C4B0779002B3D9D /* BestPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3717BE971C4B0779002B3D9D /* BestPlayerTableViewCell.xib */; };
 		B6E121308B513DA2025ACD55 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43FB41BC061F13843BD3A39 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,11 @@
 		3717BE891C4AE2F0002B3D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3717BE8B1C4AEB49002B3D9D /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		3717BE8C1C4AEB49002B3D9D /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		3717BE921C4B073B002B3D9D /* UIView+Nib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Nib.h"; sourceTree = "<group>"; };
+		3717BE931C4B073B002B3D9D /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
+		3717BE951C4B0779002B3D9D /* BestPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestPlayerTableViewCell.h; sourceTree = "<group>"; };
+		3717BE961C4B0779002B3D9D /* BestPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestPlayerTableViewCell.m; sourceTree = "<group>"; };
+		3717BE971C4B0779002B3D9D /* BestPlayerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BestPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		A94CC9367823965DF524FF6E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D43FB41BC061F13843BD3A39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +138,7 @@
 		3717BE2F1C4A86C6002B3D9D /* Tapit */ = {
 			isa = PBXGroup;
 			children = (
+				3717BE8E1C4B06EA002B3D9D /* Categories */,
 				3717BE7C1C4AD195002B3D9D /* Resources */,
 				3717BE6C1C4A9D33002B3D9D /* Views */,
 				3717BE621C4A9B06002B3D9D /* ViewControllers */,
@@ -202,6 +211,9 @@
 				3717BE7A1C4AA9FE002B3D9D /* HaxagoneGameItemView.m */,
 				3717BE851C4AD553002B3D9D /* LifesView.h */,
 				3717BE861C4AD553002B3D9D /* LifesView.m */,
+				3717BE951C4B0779002B3D9D /* BestPlayerTableViewCell.h */,
+				3717BE961C4B0779002B3D9D /* BestPlayerTableViewCell.m */,
+				3717BE971C4B0779002B3D9D /* BestPlayerTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +227,15 @@
 				3717BE801C4AD256002B3D9D /* IconLife@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3717BE8E1C4B06EA002B3D9D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3717BE921C4B073B002B3D9D /* UIView+Nib.h */,
+				3717BE931C4B073B002B3D9D /* UIView+Nib.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		D6CAF672BD13A0CF4BED5392 /* Pods */ = {
@@ -319,6 +340,7 @@
 			files = (
 				3717BE821C4AD256002B3D9D /* IconLife.png in Resources */,
 				3717BE401C4A86C6002B3D9D /* LaunchScreen.storyboard in Resources */,
+				3717BE991C4B0779002B3D9D /* BestPlayerTableViewCell.xib in Resources */,
 				3717BE3D1C4A86C6002B3D9D /* Assets.xcassets in Resources */,
 				3717BE811C4AD256002B3D9D /* IconLife-s.png in Resources */,
 				3717BE3B1C4A86C6002B3D9D /* Main.storyboard in Resources */,
@@ -390,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3717BE871C4AD553002B3D9D /* LifesView.m in Sources */,
+				3717BE981C4B0779002B3D9D /* BestPlayerTableViewCell.m in Sources */,
 				3717BE5B1C4A928B002B3D9D /* Game.m in Sources */,
 				3717BE6F1C4A9D56002B3D9D /* GameView.m in Sources */,
 				3717BE8D1C4AEB49002B3D9D /* Player.m in Sources */,
@@ -397,6 +420,7 @@
 				3717BE721C4A9F82002B3D9D /* GameViewSeparator.m in Sources */,
 				3717BE351C4A86C6002B3D9D /* AppDelegate.m in Sources */,
 				3717BE321C4A86C6002B3D9D /* main.m in Sources */,
+				3717BE941C4B073B002B3D9D /* UIView+Nib.m in Sources */,
 				3717BE781C4AA93B002B3D9D /* CircleGameItemView.m in Sources */,
 				3717BE7B1C4AA9FE002B3D9D /* HaxagoneGameItemView.m in Sources */,
 				3717BE751C4AA141002B3D9D /* GameItemView.m in Sources */,

@@ -14,6 +14,8 @@
 @property(nonatomic, strong) NSString *name;
 
 - (instancetype)initWithName:(NSString *)name score:(int)score;
++ (void)getBestPlayers:(void (^)(NSArray *players))success error:(void (^)(NSError *error))error;
++ (int)bestScore;
 - (void)saveScore;
 
 @end

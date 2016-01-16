@@ -29,12 +29,39 @@
     return self;
 }
 
++ (void)getBestPlayers:(void (^)(NSArray *players))successBlock error:(void (^)(NSError *error))errorBlock {
+    PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
+    query.limit = 15;
+    [query orderByDescending:@"score"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSArray *bestPlayers = [NSArray array];
+            for (PFObject *object in objects) {
+                bestPlayers = [bestPlayers arrayByAddingObject:[[Player alloc] initWithName:object[@"playerName"] score:[object[@"score"] intValue]]];
+            }
+            if(successBlock!=NULL) {
+                successBlock(bestPlayers);
+            }
+        } else {
+            if(errorBlock!=NULL) {
+                errorBlock(error);
+            }
+        }
+    }];
+}
+
++(int)bestScore {
+    NSNumber *bestScore = [[NSUserDefaults standardUserDefaults] objectForKey:@"bestScore"];
+    return bestScore!=nil ? [bestScore intValue] : 0;
+}
+
 - (void)saveScore {
     PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
     gameScore[@"score"] = [NSNumber numberWithInt:self.score];
     gameScore[@"playerName"] = self.name;
     [gameScore saveEventually];
     [[NSUserDefaults standardUserDefaults] setObject:self.name forKey:@"lastPlayerName"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.score] forKey:@"bestScore"];
 }
 
 @end
