@@ -8,6 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+@class Game;
+
+@protocol GameDelegate
+
+-(void)gameDidMoveItems:(Game *)game;
+
+@end
+
 @interface Game : NSObject
+
+@property(nonatomic, strong) NSArray *items;
+@property(nonatomic, assign) int lifes;
+@property(nonatomic, assign) int score;
+@property(nonatomic, assign) float itemsMoveInterval;
+@property(nonatomic, assign) float newItemsInterval;
+@property(nonatomic, weak) id<GameDelegate>delegate;
+
+- (void)start;
 
 @end
