@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameItem.h"
+
+@class GameItemView;
+
+@protocol GameItemViewDelegate
+
+-(void)gameItemViewWasTapped:(GameItemView *)GameItemView;
+
+@end
 
 @interface GameItemView : UIView
+
+@property(nonatomic, strong) GameItem *item;
+@property(nonatomic, weak) id<GameItemViewDelegate>delegate;
+
++ (instancetype)gameItemViewWithGameItem:(GameItem *)item x:(CGFloat)x delegate:(id<GameItemViewDelegate>)delegate;
+- (instancetype)initWithGameItem:(GameItem *)item x:(CGFloat)x delegate:(id<GameItemViewDelegate>)delegate;
+- (void)updatePosition;
 
 @end

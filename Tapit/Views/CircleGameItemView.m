@@ -10,4 +10,8 @@
 
 @implementation CircleGameItemView
 
+- (UIBezierPath *)gamePath {
+    return [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+}
+
 @end
