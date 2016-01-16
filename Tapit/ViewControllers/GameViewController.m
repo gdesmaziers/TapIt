@@ -44,6 +44,7 @@
 
 -(void)game:(Game *)game itemDisappeared:(GameItem *)gameItem {
     [(GameView *)self.view removeItemViewForItem:gameItem];
+    [(GameView *)self.view updateLifesDisplay:self.game.lifes];
 }
 
 #pragma GameItemViewDelegate

@@ -20,12 +20,15 @@
 
 - (void)awakeFromNib {
     self.itemViews = [NSMutableArray array];
+    self.lifesView = [[LifesView alloc] initWithOrigin:CGPointMake(20.0f, 25.0f) numberOfLifes:GAME_NUMBER_OF_INITIAL_LIFES];
 }
 
 - (void)drawRect:(CGRect)rect {
     for(int i=0;i<(GAME_NUMBER_OF_COLUM-1);i++) {
         [self insertSubview:[[GameViewSeparator alloc] initWithHeight:self.frame.size.height x:self.frame.size.width/GAME_NUMBER_OF_COLUM*(i+1)] belowSubview:self.scoreLabel];
     }
+    [self insertSubview:self.lifesView aboveSubview:self.scoreLabel];
+    [self.lifesView updateLifesDisplay:GAME_NUMBER_OF_INITIAL_LIFES];
 }
 
 - (void)addNewItemViewInColum:(int)column withGameItem:(GameItem *)item delegate:(id<GameItemViewDelegate>)delegate {
@@ -39,6 +42,10 @@
 
 - (void)updateScoreLabel:(int)score {
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
+}
+
+- (void)updateLifesDisplay:(int)numberOfRemainingLifes {
+    [self.lifesView updateLifesDisplay:numberOfRemainingLifes];
 }
 
 - (void)removeItemView:(GameItemView *)itemView {
