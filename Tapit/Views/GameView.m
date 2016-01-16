@@ -13,7 +13,7 @@
 @implementation GameView
 
 - (void)awakeFromNib {
-    self.itemViews = [NSArray array];
+    self.itemViews = [NSMutableArray array];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -26,13 +26,18 @@
     if(column<GAME_NUMBER_OF_COLUM) {
         float columnSize = (self.frame.size.width-((GAME_NUMBER_OF_COLUM-1)*GAME_SEPARATOR_SIZE))/GAME_NUMBER_OF_COLUM;
         GameItemView *itemView = [GameItemView gameItemViewWithGameItem:item x:(columnSize+GAME_SEPARATOR_SIZE)*column+(columnSize-GAME_ITEM_SIZE)/2 delegate:delegate];
-        self.itemViews = [self.itemViews arrayByAddingObject:itemView];
         [self insertSubview:itemView belowSubview:self.scoreLabel];
+        [self.itemViews addObject:itemView];
     }
 }
 
 - (void)updateScoreLabel:(int)score {
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", score];
+}
+
+- (void)removeItemView:(GameItemView *)itemView {
+    [self.itemViews removeObject:itemView];
+    [itemView removeFromSuperview];
 }
 
 @end

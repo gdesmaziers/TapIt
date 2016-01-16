@@ -13,8 +13,9 @@
 @interface GameView : UIView
 
 @property(nonatomic, strong) IBOutlet UILabel *scoreLabel;
-@property(nonatomic, strong) NSArray *itemViews;
+@property(nonatomic, strong) NSMutableArray *itemViews;
 
+- (void)removeItemView:(GameItemView *)itemView;
 - (void)addNewItemViewInColum:(int)column withGameItem:(GameItem *)item delegate:(id<GameItemViewDelegate>)delegate;
 - (void)updateScoreLabel:(int)score;
 

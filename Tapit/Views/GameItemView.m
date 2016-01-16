@@ -7,6 +7,7 @@
 //
 
 #import "GameItemView.h"
+#import "GameView.h"
 #import "CircleGameItemView.h"
 #import "HaxagoneGameItemView.h"
 #import "Constants.h"
@@ -68,7 +69,12 @@
 }
 
 - (void)onTap:(UITapGestureRecognizer *)recognizer {
-    [self.delegate gameItemViewWasTapped:self];
+    [UIView animateWithDuration:0.3f animations:^{
+        self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
+    }completion:^(BOOL finished) {
+        [self.delegate gameItemViewWasTapped:self];
+        [((GameView *)self.superview) removeItemView:self];
+    }];
 }
 
 @end

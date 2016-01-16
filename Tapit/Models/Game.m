@@ -13,6 +13,8 @@
 
 - (void)moveItems;
 - (void)displayNextItems;
+- (void)scorePlayer;
+- (void)increaseChainMode;
 
 @end
 
@@ -26,7 +28,7 @@
         self.itemsMoveInterval = GAME_INITIAL_ITEMS_MOVE_INTERVAL;
         self.newItemsInterval = GAME_INITIAL_NEW_ITEMS_INTERVAL;
         self.chainMultiplier = 1;
-        self.items = [NSArray array];
+        self.items = [NSMutableArray array];
     }
     return self;
 }
@@ -34,6 +36,16 @@
 - (void)start {
     [self displayNextItems];
     [self moveItems];
+}
+
+- (void)playItem:(GameItem *)item {
+    if(item.itemType==GameItemTypeCircle) {
+        [self scorePlayer];
+    }
+    else {
+        [self increaseChainMode];
+    }
+    [self.items removeObject:item];
 }
 
 - (void)scorePlayer {
@@ -91,7 +103,7 @@
             isHexagone = (0 + arc4random_uniform(2))==0;
         }
         GameItem *newItem = [[GameItem alloc] initWithGameItemType:isHexagone ? GameItemTypeHexagone : GameItemTypeCircle];
-        self.items = [self.items arrayByAddingObject:newItem];
+        [self.items addObject:newItem];
         int availbaleColumnIndex = arc4random_uniform((int)availbaleColumns.count);
         [self.delegate game:self didAddItem:newItem inColum:[[availbaleColumns objectAtIndex:availbaleColumnIndex] intValue]];
         [availbaleColumns removeObjectAtIndex:availbaleColumnIndex];

@@ -20,7 +20,7 @@
 
 @interface Game : NSObject
 
-@property(nonatomic, strong) NSArray *items;
+@property(nonatomic, strong) NSMutableArray *items;
 @property(nonatomic, assign) int lifes;
 @property(nonatomic, assign) int score;
 @property(nonatomic, assign) float itemsMoveInterval;
@@ -29,7 +29,7 @@
 @property(nonatomic, weak) id<GameDelegate>delegate;
 
 - (void)start;
-- (void)scorePlayer;
+- (void)playItem:(GameItem *)item;
 - (void)increaseChainMode;
 - (void)disableChainMode;
 

@@ -40,12 +40,7 @@
 
 #pragma GameItemViewDelegate
 -(void)gameItemViewWasTapped:(GameItemView *)gameItemView {
-    if(gameItemView.item.itemType==GameItemTypeCircle) {
-        [self.game scorePlayer];
-    }
-    else {
-        [self.game increaseChainMode];
-    }
+    [self.game playItem:gameItemView.item];
     [self updateScoreLabel];
 }
 
