@@ -18,6 +18,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.game start];
     [self updateScoreLabel];
 }
@@ -43,7 +44,7 @@
         [self.game scorePlayer];
     }
     else {
-        [self.game enableChainMode];
+        [self.game increaseChainMode];
     }
     [self updateScoreLabel];
 }

@@ -25,7 +25,7 @@
         self.lifes = GAME_NUMBER_OF_INITIAL_LIFES;
         self.itemsMoveInterval = GAME_INITIAL_ITEMS_MOVE_INTERVAL;
         self.newItemsInterval = GAME_INITIAL_NEW_ITEMS_INTERVAL;
-        self.isInChainMode = NO;
+        self.chainMultiplier = 1;
         self.items = [NSArray array];
     }
     return self;
@@ -37,27 +37,20 @@
 }
 
 - (void)scorePlayer {
-    if(!self.isInChainMode) {
-        self.score++;
-    }
-    else {
-        self.score = self.score + 2;
-    }
+    self.score = self.score + self.chainMultiplier;
     if(self.score%10==0) {
         self.itemsMoveInterval = self.itemsMoveInterval*0.9;
         self.newItemsInterval = self.newItemsInterval*0.9;
     }
 }
 
-- (void)enableChainMode {
-    if(!self.isInChainMode) {
-        self.isInChainMode = YES;
-        self.itemsMoveInterval = self.itemsMoveInterval*0.75;
-    }
+- (void)increaseChainMode {
+    self.chainMultiplier = self.chainMultiplier*2;
+    self.itemsMoveInterval = self.itemsMoveInterval*0.75;
 }
 
 - (void)disableChainMode {
-    self.isInChainMode = NO;
+    self.chainMultiplier = 1;
 }
 
 - (void)moveItems {
@@ -101,7 +94,6 @@
         self.items = [self.items arrayByAddingObject:newItem];
         int availbaleColumnIndex = arc4random_uniform((int)availbaleColumns.count);
         [self.delegate game:self didAddItem:newItem inColum:[[availbaleColumns objectAtIndex:availbaleColumnIndex] intValue]];
-        NSLog(@"column : %d", [[availbaleColumns objectAtIndex:availbaleColumnIndex] intValue]);
         [availbaleColumns removeObjectAtIndex:availbaleColumnIndex];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,  self.newItemsInterval* NSEC_PER_SEC), dispatch_get_main_queue(), ^{
