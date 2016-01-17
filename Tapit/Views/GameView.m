@@ -20,7 +20,7 @@
 
 - (void)awakeFromNib {
     self.itemViews = [NSMutableArray array];
-    self.lifesView = [[LifesView alloc] initWithOrigin:CGPointMake(20.0f, 25.0f) numberOfLifes:GAME_NUMBER_OF_INITIAL_LIFES];
+    self.lifesView = [[LifesView alloc] initWithOrigin:CGPointMake(20.0f, 15.0f) numberOfLifes:GAME_NUMBER_OF_INITIAL_LIFES];
 }
 
 - (void)drawRect:(CGRect)rect {
