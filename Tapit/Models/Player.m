@@ -61,7 +61,9 @@
     gameScore[@"playerName"] = self.name;
     [gameScore saveEventually];
     [[NSUserDefaults standardUserDefaults] setObject:self.name forKey:@"lastPlayerName"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.score] forKey:@"bestScore"];
+    if(self.score>[Player bestScore]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.score] forKey:@"bestScore"];
+    }
 }
 
 @end
